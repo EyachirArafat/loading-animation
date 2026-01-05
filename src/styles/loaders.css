@@ -1,0 +1,840 @@
+/* ===== LOADER 001-025: Unique Complex Loaders ===== */
+
+/* 001: Spinning Ring */
+.loader-001 {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(99, 102, 241, 0.2);
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 002: Bouncing Dots */
+.loader-002 {
+    display: flex;
+    gap: 8px;
+}
+
+.loader-002 span {
+    width: 12px;
+    height: 12px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: bounce 0.6s ease-in-out infinite;
+}
+
+.loader-002 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-002 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* 003: Morphing Blob */
+.loader-003 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    animation: morph 3s ease-in-out infinite;
+}
+
+@keyframes morph {
+
+    0%,
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+
+/* 004: Wave Bars */
+.loader-004 {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    height: 40px;
+}
+
+.loader-004 span {
+    width: 6px;
+    height: 100%;
+    background: #6366f1;
+    animation: wave 1s ease-in-out infinite;
+}
+
+.loader-004 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-004 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-004 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-004 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+/* 005: Dual Ring */
+.loader-005 {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.loader-005::before,
+.loader-005::after {
+    content: '';
+    position: absolute;
+    border: 4px solid transparent;
+    border-radius: 50%;
+}
+
+.loader-005::before {
+    inset: 0;
+    border-top-color: #6366f1;
+    animation: spin 1s linear infinite;
+}
+
+.loader-005::after {
+    inset: 8px;
+    border-bottom-color: #ec4899;
+    animation: spin 0.8s linear infinite reverse;
+}
+
+/* 006: Pulsing Rings */
+.loader-006 {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.loader-006 span {
+    position: absolute;
+    inset: 0;
+    border: 3px solid #6366f1;
+    border-radius: 50%;
+    animation: ripple 1.5s ease-out infinite;
+}
+
+.loader-006 span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 007: Gradient Spinner */
+.loader-007 {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: conic-gradient(#6366f1, #a855f7, #ec4899, transparent);
+    animation: spin 1s linear infinite;
+    mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 0);
+}
+
+/* 008: Folding Cube */
+.loader-008 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transform: rotateZ(45deg);
+}
+
+.loader-008 span {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #6366f1;
+    animation: fold 2.4s infinite linear both;
+    transform-origin: 100% 100%;
+}
+
+.loader-008 span:nth-child(2) {
+    transform: rotateZ(90deg);
+    animation-delay: 0.6s;
+    background: #818cf8;
+}
+
+.loader-008 span:nth-child(3) {
+    transform: rotateZ(180deg);
+    animation-delay: 1.2s;
+    background: #a855f7;
+}
+
+.loader-008 span:nth-child(4) {
+    transform: rotateZ(270deg);
+    animation-delay: 1.8s;
+    background: #c084fc;
+}
+
+@keyframes fold {
+
+    0%,
+    10% {
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        transform: perspective(140px) rotateX(0);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+/* 009: Hexagon Pulse */
+.loader-009 {
+    width: 50px;
+    height: 44px;
+    background: #6366f1;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    animation: hexpulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes hexpulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 010: Matrix Grid */
+.loader-010 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    width: 36px;
+}
+
+.loader-010 span {
+    aspect-ratio: 1;
+    background: #6366f1;
+    animation: matrix 1.3s ease-in-out infinite;
+}
+
+.loader-010 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-010 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-010 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-010 span:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+.loader-010 span:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.loader-010 span:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.loader-010 span:nth-child(7) {
+    animation-delay: 0.2s;
+}
+
+.loader-010 span:nth-child(8) {
+    animation-delay: 0.3s;
+}
+
+.loader-010 span:nth-child(9) {
+    animation-delay: 0.4s;
+}
+
+@keyframes matrix {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 011: Triangle Spinner */
+.loader-011 {
+    width: 0;
+    height: 0;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-bottom: 38px solid #6366f1;
+    animation: trispin 1.5s linear infinite;
+}
+
+@keyframes trispin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 012: Elastic Ball */
+.loader-012 {
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: elastic 1s ease-in-out infinite;
+}
+
+@keyframes elastic {
+
+    0%,
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    25% {
+        transform: scale(1.2, 0.8) translateY(10px);
+    }
+
+    50% {
+        transform: scale(0.8, 1.2) translateY(-10px);
+    }
+
+    75% {
+        transform: scale(1.1, 0.9) translateY(5px);
+    }
+}
+
+/* 013: Neon Ring */
+.loader-013 {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #6366f1;
+    border-radius: 50%;
+    animation: neonpulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 15px #6366f1, inset 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+@keyframes neonpulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px #6366f1;
+    }
+
+    50% {
+        box-shadow: 0 0 30px #6366f1, 0 0 50px #6366f1;
+    }
+}
+
+/* 014: Hourglass */
+.loader-014 {
+    width: 28px;
+    height: 48px;
+    position: relative;
+    animation: hourglass 2s ease-in-out infinite;
+}
+
+.loader-014::before,
+.loader-014::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 14px solid transparent;
+}
+
+.loader-014::before {
+    top: 0;
+    border-top: 20px solid #6366f1;
+}
+
+.loader-014::after {
+    bottom: 0;
+    border-bottom: 20px solid #a855f7;
+}
+
+@keyframes hourglass {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 015: Heartbeat */
+.loader-015 {
+    width: 40px;
+    height: 36px;
+    position: relative;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.loader-015::before,
+.loader-015::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 32px;
+    background: #ec4899;
+    border-radius: 20px 20px 0 0;
+}
+
+.loader-015::before {
+    left: 0;
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
+}
+
+.loader-015::after {
+    right: 0;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+}
+
+/* 016: Sound Wave */
+.loader-016 {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    height: 40px;
+}
+
+.loader-016 span {
+    width: 4px;
+    background: #6366f1;
+    border-radius: 2px;
+    animation: soundwave 1s ease-in-out infinite;
+}
+
+.loader-016 span:nth-child(1) {
+    height: 15px;
+}
+
+.loader-016 span:nth-child(2) {
+    height: 25px;
+    animation-delay: 0.1s;
+}
+
+.loader-016 span:nth-child(3) {
+    height: 35px;
+    animation-delay: 0.2s;
+}
+
+.loader-016 span:nth-child(4) {
+    height: 25px;
+    animation-delay: 0.3s;
+}
+
+.loader-016 span:nth-child(5) {
+    height: 40px;
+    animation-delay: 0.4s;
+}
+
+.loader-016 span:nth-child(6) {
+    height: 30px;
+    animation-delay: 0.5s;
+}
+
+.loader-016 span:nth-child(7) {
+    height: 20px;
+    animation-delay: 0.6s;
+}
+
+@keyframes soundwave {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.4);
+    }
+}
+
+/* 017: Ping Pong */
+.loader-017 {
+    width: 70px;
+    height: 20px;
+    position: relative;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 10px;
+}
+
+.loader-017::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    animation: pingpong 1s ease-in-out infinite alternate;
+}
+
+@keyframes pingpong {
+    to {
+        left: calc(100% - 19px);
+    }
+}
+
+/* 018: Pacman */
+.loader-018 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.loader-018::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #fbbf24;
+    border-radius: 50%;
+    position: absolute;
+    clip-path: polygon(100% 50%, 50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%, 50% 50%);
+    animation: pacman 0.5s ease-in-out infinite;
+}
+
+.loader-018::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fbbf24;
+    border-radius: 50%;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: pacdot 0.5s linear infinite;
+}
+
+@keyframes pacman {
+
+    0%,
+    100% {
+        clip-path: polygon(100% 50%, 50% 50%, 50% 20%, 100% 0, 100% 100%, 50% 80%, 50% 50%);
+    }
+
+    50% {
+        clip-path: polygon(100% 50%, 50% 50%, 50% 45%, 100% 45%, 100% 55%, 50% 55%, 50% 50%);
+    }
+}
+
+@keyframes pacdot {
+    0% {
+        right: -15px;
+        opacity: 1;
+    }
+
+    100% {
+        right: 15px;
+        opacity: 0;
+    }
+}
+
+/* 019: Orbit */
+.loader-019 {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.loader-019::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #6366f1;
+}
+
+/* 020: Typing Dots */
+.loader-020 {
+    display: flex;
+    gap: 6px;
+    padding: 10px 15px;
+    background: rgba(99, 102, 241, 0.15);
+    border-radius: 20px;
+}
+
+.loader-020 span {
+    width: 8px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: typing 1.4s ease-in-out infinite;
+}
+
+.loader-020 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-020 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-8px);
+    }
+}
+
+/* 021: Sunrise */
+.loader-021 {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 60px 60px 0 0;
+    background: linear-gradient(to top, #f97316, #fbbf24, #fef3c7);
+}
+
+.loader-021::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fbbf24;
+    border-radius: 50%;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: sunrise 2s ease-in-out infinite;
+    box-shadow: 0 0 15px #fbbf24;
+}
+
+@keyframes sunrise {
+
+    0%,
+    100% {
+        bottom: -20px;
+    }
+
+    50% {
+        bottom: 2px;
+    }
+}
+
+/* 022: Gear */
+.loader-022 {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.loader-022::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: #0a0a0f;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.loader-022::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, #6366f1 0deg, #6366f1 30deg, transparent 30deg, transparent 60deg, #6366f1 60deg, #6366f1 90deg, transparent 90deg, transparent 120deg, #6366f1 120deg, #6366f1 150deg, transparent 150deg, transparent 180deg, #6366f1 180deg, #6366f1 210deg, transparent 210deg, transparent 240deg, #6366f1 240deg, #6366f1 270deg, transparent 270deg, transparent 300deg, #6366f1 300deg, #6366f1 330deg, transparent 330deg);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+/* 023: Radar */
+.loader-023 {
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    position: relative;
+}
+
+.loader-023::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, transparent 0deg, #6366f1 30deg, transparent 60deg);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+/* 024: Comet */
+.loader-024 {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    animation: spin 1.2s linear infinite;
+}
+
+.loader-024::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fbbf24;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px #fbbf24,
+        0 8px 0 -2px rgba(251, 191, 36, 0.6),
+        0 16px 0 -4px rgba(251, 191, 36, 0.4),
+        0 24px 0 -6px rgba(251, 191, 36, 0.2);
+}
+
+/* 025: Galaxy */
+.loader-025 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: spin 3s linear infinite;
+}
+
+.loader-025::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-025 span {
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-top-color: rgba(99, 102, 241, 0.5);
+    border-radius: 50%;
+    animation: galaxyring 1.5s ease-in-out infinite;
+}
+
+.loader-025 span:nth-child(2) {
+    transform: rotate(60deg);
+    animation-delay: 0.2s;
+}
+
+.loader-025 span:nth-child(3) {
+    transform: rotate(120deg);
+    animation-delay: 0.4s;
+}
+
+@keyframes galaxyring {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

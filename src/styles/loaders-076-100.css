@@ -1,0 +1,927 @@
+/* ===== LOADER 076-100 ===== */
+
+/* 076: Dotted Circle */
+.loader-076 {
+    width: 50px;
+    height: 50px;
+    border: 4px dotted #6366f1;
+    border-radius: 50%;
+    animation: dotspin 1.5s linear infinite;
+}
+
+@keyframes dotspin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 077: Swinging Pendulum */
+.loader-077 {
+    width: 60px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-077::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: #6366f1;
+    transform-origin: top;
+    animation: swingpendulum 1s ease-in-out infinite alternate;
+}
+
+.loader-077::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #ec4899;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: swingball 1s ease-in-out infinite alternate;
+}
+
+@keyframes swingpendulum {
+    0% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes swingball {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(4px);
+    }
+}
+
+/* 078: Growing Bars */
+.loader-078 {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 40px;
+}
+
+.loader-078 span {
+    width: 8px;
+    background: #6366f1;
+    border-radius: 2px;
+    animation: growbar 1s ease-in-out infinite;
+}
+
+.loader-078 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-078 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-078 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.loader-078 span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes growbar {
+
+    0%,
+    100% {
+        height: 20%;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+/* 079: Rotating Hexagon */
+.loader-079 {
+    width: 50px;
+    height: 44px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    animation: hexrot 2s linear infinite;
+}
+
+@keyframes hexrot {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 080: Bouncing Ball */
+.loader-080 {
+    width: 60px;
+    height: 40px;
+    position: relative;
+}
+
+.loader-080::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: bounceball 0.5s ease-in-out infinite alternate;
+}
+
+.loader-080::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 30px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: shadow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes bounceball {
+    to {
+        bottom: 30px;
+    }
+}
+
+@keyframes shadow {
+    to {
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+/* 081: Wave Dots */
+.loader-081 {
+    display: flex;
+    gap: 6px;
+}
+
+.loader-081 span {
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: wavedot 1s ease-in-out infinite;
+}
+
+.loader-081 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-081 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-081 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-081 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-081 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wavedot {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* 082: Loading Text */
+.loader-082 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6366f1;
+    animation: loadtext 2s ease-in-out infinite;
+}
+
+.loader-082::after {
+    content: '';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes loadtext {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes dots {
+    0% {
+        content: '';
+    }
+
+    25% {
+        content: '.';
+    }
+
+    50% {
+        content: '..';
+    }
+
+    75% {
+        content: '...';
+    }
+}
+
+/* 083: Scissor Loader */
+.loader-083 {
+    width: 50px;
+    height: 30px;
+    position: relative;
+}
+
+.loader-083::before,
+.loader-083::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 4px;
+    left: 50%;
+}
+
+.loader-083::before {
+    top: 0;
+    transform-origin: left;
+    animation: scissor1 0.6s ease-in-out infinite alternate;
+}
+
+.loader-083::after {
+    bottom: 0;
+    transform-origin: left;
+    animation: scissor2 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes scissor1 {
+    from {
+        transform: rotate(10deg);
+    }
+
+    to {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes scissor2 {
+    from {
+        transform: rotate(-10deg);
+    }
+
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+/* 084: DNA Strand */
+.loader-084 {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loader-084 span {
+    width: 6px;
+    height: 20px;
+    background: linear-gradient(#6366f1, #ec4899);
+    border-radius: 3px;
+    animation: dnatwist 1s ease-in-out infinite;
+}
+
+.loader-084 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-084 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-084 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-084 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loader-084 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+@keyframes dnatwist {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.3);
+    }
+}
+
+/* 085: Radar */
+.loader-085 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    position: relative;
+}
+
+.loader-085::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, transparent 0deg, #6366f1 30deg, transparent 60deg);
+    border-radius: 50%;
+    animation: radarsweep 1.5s linear infinite;
+}
+
+@keyframes radarsweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 086: Orbit Ring */
+.loader-086 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
+    position: relative;
+    animation: orbitring 3s linear infinite;
+}
+
+.loader-086::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #6366f1;
+}
+
+@keyframes orbitring {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 087: Gradient Blob */
+.loader-087 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    animation: blobmorph 3s ease-in-out infinite;
+    filter: blur(0px);
+}
+
+@keyframes blobmorph {
+
+    0%,
+    100% {
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+
+    34% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    }
+
+    67% {
+        border-radius: 50% 60% 30% 60% / 70% 40% 70% 30%;
+    }
+}
+
+/* 088: Triple Bounce */
+.loader-088 {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    height: 40px;
+}
+
+.loader-088 span {
+    width: 15px;
+    height: 15px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: triplebounce 0.6s ease-in-out infinite alternate;
+}
+
+.loader-088 span:nth-child(2) {
+    animation-delay: 0.2s;
+    background: #a855f7;
+}
+
+.loader-088 span:nth-child(3) {
+    animation-delay: 0.4s;
+    background: #ec4899;
+}
+
+@keyframes triplebounce {
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+/* 089: Spinning Dots */
+.loader-089 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: spin 2s linear infinite;
+}
+
+.loader-089 span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 50%;
+}
+
+.loader-089 span:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loader-089 span:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+.loader-089 span:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+}
+
+.loader-089 span:nth-child(4) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    opacity: 0.4;
+}
+
+/* 090: Pulse Bars */
+.loader-090 {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.loader-090 span {
+    width: 6px;
+    height: 30px;
+    background: #6366f1;
+    border-radius: 3px;
+    animation: pulsebar 1s ease-in-out infinite;
+}
+
+.loader-090 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-090 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-090 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-090 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulsebar {
+
+    0%,
+    100% {
+        transform: scaleY(0.4);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* 091: Rotating Plus */
+.loader-091 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    animation: plusspin 1.5s linear infinite;
+}
+
+.loader-091::before,
+.loader-091::after {
+    content: '';
+    position: absolute;
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+.loader-091::before {
+    width: 100%;
+    height: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loader-091::after {
+    width: 12px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes plusspin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 092: Circle Chase */
+.loader-092 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-092 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: circlechase 1s linear infinite;
+}
+
+.loader-092 span:nth-child(2) {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border-top-color: #a855f7;
+    animation-duration: 0.8s;
+}
+
+.loader-092 span:nth-child(3) {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    border-top-color: #ec4899;
+    animation-duration: 0.6s;
+}
+
+@keyframes circlechase {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 093: Loading Progress */
+.loader-093 {
+    width: 80px;
+    height: 8px;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loader-093::before {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #6366f1;
+    border-radius: 4px;
+    animation: progress 1.5s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(350%);
+    }
+}
+
+/* 094: Flip Squares */
+.loader-094 {
+    display: flex;
+    gap: 4px;
+}
+
+.loader-094 span {
+    width: 15px;
+    height: 15px;
+    background: #6366f1;
+    animation: flipsq 1.2s ease-in-out infinite;
+}
+
+.loader-094 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-094 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes flipsq {
+
+    0%,
+    100% {
+        transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+/* 095: Neon Ring */
+.loader-095 {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #6366f1;
+    border-radius: 50%;
+    animation: neonpulse 1s ease-in-out infinite;
+    box-shadow: 0 0 20px #6366f1, inset 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+@keyframes neonpulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px #6366f1;
+    }
+
+    50% {
+        box-shadow: 0 0 30px #6366f1, 0 0 60px #6366f1;
+    }
+}
+
+/* 096: Gear Pair */
+.loader-096 {
+    width: 60px;
+    height: 30px;
+    position: relative;
+}
+
+.loader-096::before,
+.loader-096::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 4px dashed #6366f1;
+    border-radius: 50%;
+}
+
+.loader-096::before {
+    left: 0;
+    animation: gearleft 1s linear infinite;
+}
+
+.loader-096::after {
+    right: 0;
+    animation: gearright 1s linear infinite;
+}
+
+@keyframes gearleft {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gearright {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* 097: Comet Trail */
+.loader-097 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: cometspin 1s linear infinite;
+}
+
+.loader-097::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fbbf24;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #fbbf24,
+        0 10px 0 -2px rgba(251, 191, 36, 0.7),
+        0 20px 0 -4px rgba(251, 191, 36, 0.5),
+        0 30px 0 -6px rgba(251, 191, 36, 0.3);
+}
+
+@keyframes cometspin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 098: Binary Dots */
+.loader-098 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+
+.loader-098 span {
+    width: 8px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: binary 0.8s steps(2) infinite;
+}
+
+.loader-098 span:nth-child(odd) {
+    animation-delay: 0s;
+}
+
+.loader-098 span:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+@keyframes binary {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* 099: Oscillating Bars */
+.loader-099 {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    height: 40px;
+}
+
+.loader-099 span {
+    width: 5px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 2px;
+    animation: oscbar 0.8s ease-in-out infinite alternate;
+}
+
+.loader-099 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-099 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-099 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-099 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-099 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loader-099 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+@keyframes oscbar {
+    to {
+        height: 40px;
+    }
+}
+
+/* 100: Galaxy Spin */
+.loader-100 {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    animation: galaxyspin 3s linear infinite;
+}
+
+.loader-100::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-100 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top-color: rgba(99, 102, 241, 0.5);
+    border-radius: 50%;
+}
+
+.loader-100 span:nth-child(1) {
+    animation: galaxyring 2s linear infinite;
+}
+
+.loader-100 span:nth-child(2) {
+    transform: rotate(60deg);
+    animation: galaxyring 2s linear infinite 0.3s;
+}
+
+.loader-100 span:nth-child(3) {
+    transform: rotate(120deg);
+    animation: galaxyring 2s linear infinite 0.6s;
+}
+
+@keyframes galaxyspin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes galaxyring {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
