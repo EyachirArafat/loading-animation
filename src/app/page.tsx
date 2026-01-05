@@ -5,6 +5,7 @@ import "@/styles/loaders.css";
 import "@/styles/loaders-026-050.css";
 import "@/styles/loaders-051-075.css";
 import "@/styles/loaders-076-100.css";
+import "@/styles/loaders-101-125.css";
 
 // All 100 unique loaders with unique names
 const loaders = [
@@ -112,6 +113,32 @@ const loaders = [
   { id: "098", name: "Binary Grid", html: '<div class="loader-098"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>' },
   { id: "099", name: "Oscillate Bars", html: '<div class="loader-099"><span></span><span></span><span></span><span></span><span></span><span></span></div>' },
   { id: "100", name: "Galaxy Core", html: '<div class="loader-100"><span></span><span></span><span></span></div>' },
+  // 101-125 (Completely Unique Designs)
+  { id: "101", name: "Typewriter", html: '<div class="loader-101"></div>' },
+  { id: "102", name: "Paper Plane", html: '<div class="loader-102"></div>' },
+  { id: "103", name: "Fingerprint", html: '<div class="loader-103"><span></span><span></span><span></span></div>' },
+  { id: "104", name: "Pendulum Clock", html: '<div class="loader-104"></div>' },
+  { id: "105", name: "Scissors", html: '<div class="loader-105"></div>' },
+  { id: "106", name: "Washing Machine", html: '<div class="loader-106"></div>' },
+  { id: "107", name: "Heart Monitor", html: '<div class="loader-107"></div>' },
+  { id: "108", name: "Percentage", html: '<div class="loader-108">%</div>' },
+  { id: "109", name: "Bouncing Letters", html: '<div class="loader-109"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span></div>' },
+  { id: "110", name: "Pie Chart", html: '<div class="loader-110"></div>' },
+  { id: "111", name: "Coffee Cup", html: '<div class="loader-111"></div>' },
+  { id: "112", name: "Sandglass 3D", html: '<div class="loader-112"></div>' },
+  { id: "113", name: "Cassette Tape", html: '<div class="loader-113"></div>' },
+  { id: "114", name: "Vinyl Record", html: '<div class="loader-114"></div>' },
+  { id: "115", name: "TV Static", html: '<div class="loader-115"></div>' },
+  { id: "116", name: "Compass", html: '<div class="loader-116"></div>' },
+  { id: "117", name: "Fan Blades", html: '<div class="loader-117"><span></span><span></span><span></span></div>' },
+  { id: "118", name: "Stopwatch", html: '<div class="loader-118"></div>' },
+  { id: "119", name: "Metronome", html: '<div class="loader-119"></div>' },
+  { id: "120", name: "Newton Balls", html: '<div class="loader-120"><span></span><span></span><span></span><span></span><span></span></div>' },
+  { id: "121", name: "Slot Machine", html: '<div class="loader-121"><span></span><span></span><span></span></div>' },
+  { id: "122", name: "Dice Roll", html: '<div class="loader-122"></div>' },
+  { id: "123", name: "Hourglass Sand", html: '<div class="loader-123"></div>' },
+  { id: "124", name: "Lighthouse", html: '<div class="loader-124"></div>' },
+  { id: "125", name: "Blinking Cursor", html: '<div class="loader-125"></div>' },
 ];
 
 function LoaderCard({ id, name, html }: { id: string; name: string; html: string }) {

@@ -1,0 +1,997 @@
+/* ===== LOADER 101-125: Completely Unique Designs ===== */
+
+/* 101: Typewriter */
+.loader-101 {
+    font-family: monospace;
+    font-size: 16px;
+    color: #6366f1;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #6366f1;
+    animation: typewriter101 3s steps(10) infinite, blink101 0.5s step-end infinite;
+}
+
+.loader-101::before {
+    content: 'Loading...';
+}
+
+@keyframes typewriter101 {
+
+    0%,
+    100% {
+        width: 0;
+    }
+
+    50% {
+        width: 10ch;
+    }
+}
+
+@keyframes blink101 {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* 102: Paper Plane */
+.loader-102 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-right: 25px solid #6366f1;
+    border-bottom: 12px solid transparent;
+    animation: fly102 2s ease-in-out infinite;
+}
+
+@keyframes fly102 {
+
+    0%,
+    100% {
+        transform: translateX(-20px) translateY(0) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateX(20px) translateY(-15px) rotate(15deg);
+    }
+}
+
+/* 103: Fingerprint */
+.loader-103 {
+    width: 40px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-103 span {
+    position: absolute;
+    left: 50%;
+    border: 2px solid transparent;
+    border-left-color: #6366f1;
+    border-radius: 50%;
+    animation: fingerprint103 2s ease-in-out infinite;
+}
+
+.loader-103 span:nth-child(1) {
+    width: 10px;
+    height: 20px;
+    top: 15px;
+    transform: translateX(-50%);
+}
+
+.loader-103 span:nth-child(2) {
+    width: 20px;
+    height: 30px;
+    top: 10px;
+    transform: translateX(-50%);
+    animation-delay: 0.3s;
+}
+
+.loader-103 span:nth-child(3) {
+    width: 30px;
+    height: 40px;
+    top: 5px;
+    transform: translateX(-50%);
+    animation-delay: 0.6s;
+}
+
+@keyframes fingerprint103 {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 104: Pendulum Clock */
+.loader-104 {
+    width: 50px;
+    height: 60px;
+    position: relative;
+}
+
+.loader-104::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    background: linear-gradient(to bottom, #6366f1, #a855f7);
+    top: 0;
+    left: 50%;
+    transform-origin: top center;
+    animation: pendulum104 1.5s ease-in-out infinite;
+}
+
+.loader-104::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ec4899;
+    border-radius: 50%;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pendulumBall104 1.5s ease-in-out infinite;
+}
+
+@keyframes pendulum104 {
+
+    0%,
+    100% {
+        transform: rotate(-30deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes pendulumBall104 {
+
+    0%,
+    100% {
+        left: 30%;
+    }
+
+    50% {
+        left: 70%;
+    }
+}
+
+/* 105: Scissors */
+.loader-105 {
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
+
+.loader-105::before,
+.loader-105::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 4px 4px 0 0;
+    left: 50%;
+    transform-origin: left center;
+}
+
+.loader-105::before {
+    top: 5px;
+    animation: scissor105a 0.8s ease-in-out infinite;
+}
+
+.loader-105::after {
+    bottom: 5px;
+    animation: scissor105b 0.8s ease-in-out infinite;
+}
+
+@keyframes scissor105a {
+
+    0%,
+    100% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes scissor105b {
+
+    0%,
+    100% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+/* 106: Washing Machine */
+.loader-106 {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #334155;
+    border-radius: 8px;
+    position: relative;
+}
+
+.loader-106::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 3px solid rgba(99, 102, 241, 0.3);
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: wash106 0.8s linear infinite;
+}
+
+@keyframes wash106 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 107: Heartbeat Monitor */
+.loader-107 {
+    width: 80px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-107::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 10px,
+            #22c55e 10px,
+            #22c55e 12px,
+            transparent 12px,
+            transparent 20px,
+            #22c55e 20px,
+            #22c55e 25px,
+            transparent 25px,
+            transparent 30px,
+            #22c55e 30px,
+            #22c55e 32px,
+            transparent 32px,
+            transparent 50px);
+    animation: heartMonitor107 2s linear infinite;
+}
+
+@keyframes heartMonitor107 {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* 108: Loading Percentage */
+.loader-108 {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #6366f1;
+}
+
+.loader-108::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 4px solid transparent;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: percent108 1s linear infinite;
+}
+
+@keyframes percent108 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 109: Bouncing Letters */
+.loader-109 {
+    display: flex;
+    gap: 2px;
+    font-weight: bold;
+    color: #6366f1;
+}
+
+.loader-109 span {
+    animation: letterBounce109 1.4s ease-in-out infinite;
+}
+
+.loader-109 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-109 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-109 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-109 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-109 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loader-109 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.loader-109 span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+@keyframes letterBounce109 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 110: Pie Chart */
+.loader-110 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(#6366f1 0deg, transparent 0deg);
+    animation: pieChart110 2s ease-in-out infinite;
+}
+
+@keyframes pieChart110 {
+    0% {
+        background: conic-gradient(#6366f1 0deg, rgba(99, 102, 241, 0.2) 0deg);
+    }
+
+    50% {
+        background: conic-gradient(#6366f1 180deg, rgba(99, 102, 241, 0.2) 180deg);
+    }
+
+    100% {
+        background: conic-gradient(#6366f1 360deg, rgba(99, 102, 241, 0.2) 360deg);
+    }
+}
+
+/* 111: Coffee Cup */
+.loader-111 {
+    width: 30px;
+    height: 35px;
+    border: 3px solid #a16207;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    position: relative;
+}
+
+.loader-111::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 15px;
+    border: 3px solid #a16207;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    right: -11px;
+    top: 5px;
+}
+
+.loader-111::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 15px;
+    background: rgba(99, 102, 241, 0.5);
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    animation: steam111 1s ease-out infinite;
+}
+
+@keyframes steam111 {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-15px) scale(1.5);
+    }
+}
+
+/* 112: Sandglass 3D */
+.loader-112 {
+    width: 24px;
+    height: 40px;
+    position: relative;
+    perspective: 200px;
+}
+
+.loader-112::before,
+.loader-112::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+.loader-112::before {
+    top: 0;
+    border-top: 18px solid #6366f1;
+    animation: sand112top 2s ease-in-out infinite;
+}
+
+.loader-112::after {
+    bottom: 0;
+    border-bottom: 18px solid #a855f7;
+    animation: sand112bottom 2s ease-in-out infinite;
+}
+
+@keyframes sand112top {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes sand112bottom {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 113: Cassette Tape */
+.loader-113 {
+    width: 60px;
+    height: 35px;
+    background: #1e293b;
+    border-radius: 4px;
+    position: relative;
+}
+
+.loader-113::before,
+.loader-113::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 3px solid #6366f1;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: cassette113 1s linear infinite;
+}
+
+.loader-113::before {
+    left: 8px;
+}
+
+.loader-113::after {
+    right: 8px;
+}
+
+@keyframes cassette113 {
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* 114: Vinyl Record */
+.loader-114 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(#1e293b, #334155);
+    position: relative;
+    animation: vinyl114 2s linear infinite;
+}
+
+.loader-114::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ef4444;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-114::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+@keyframes vinyl114 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 115: TV Static */
+.loader-115 {
+    width: 50px;
+    height: 40px;
+    background: repeating-linear-gradient(0deg,
+            #000 0px,
+            #333 1px,
+            #666 2px,
+            #333 3px,
+            #000 4px);
+    animation: static115 0.1s steps(5) infinite;
+    border-radius: 4px;
+}
+
+@keyframes static115 {
+    to {
+        background-position: 0 50px;
+    }
+}
+
+/* 116: Compass */
+.loader-116 {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    position: relative;
+}
+
+.loader-116::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 18px solid #ef4444;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center 18px;
+    animation: compass116 3s ease-in-out infinite;
+}
+
+.loader-116::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #6366f1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes compass116 {
+
+    0%,
+    100% {
+        transform: translateX(-50%) rotate(-45deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+/* 117: Fan Blades */
+.loader-117 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    animation: fan117 0.5s linear infinite;
+}
+
+.loader-117 span {
+    position: absolute;
+    width: 8px;
+    height: 18px;
+    background: linear-gradient(to bottom, #6366f1, transparent);
+    left: 50%;
+    transform-origin: center bottom;
+    border-radius: 4px 4px 0 0;
+}
+
+.loader-117 span:nth-child(1) {
+    transform: translateX(-50%) rotate(0deg);
+    top: 0;
+}
+
+.loader-117 span:nth-child(2) {
+    transform: translateX(-50%) rotate(120deg);
+    top: 0;
+}
+
+.loader-117 span:nth-child(3) {
+    transform: translateX(-50%) rotate(240deg);
+    top: 0;
+}
+
+@keyframes fan117 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 118: Stopwatch */
+.loader-118 {
+    width: 40px;
+    height: 48px;
+    position: relative;
+}
+
+.loader-118::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #6366f1;
+    border-radius: 50%;
+    bottom: 0;
+}
+
+.loader-118::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 14px;
+    background: #ec4899;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    animation: stopwatch118 1s linear infinite;
+}
+
+@keyframes stopwatch118 {
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* 119: Metronome */
+.loader-119 {
+    width: 30px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-119::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: #334155;
+    bottom: 0;
+}
+
+.loader-119::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to top, #6366f1, #a855f7);
+    bottom: 4px;
+    left: 50%;
+    transform-origin: bottom center;
+    animation: metronome119 1s ease-in-out infinite alternate;
+    border-radius: 2px;
+}
+
+@keyframes metronome119 {
+    0% {
+        transform: translateX(-50%) rotate(-40deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(40deg);
+    }
+}
+
+/* 120: Newton Balls */
+.loader-120 {
+    display: flex;
+    gap: 4px;
+    align-items: flex-start;
+    height: 50px;
+}
+
+.loader-120 span {
+    width: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-120 span::before {
+    content: '';
+    width: 2px;
+    height: 30px;
+    background: #475569;
+}
+
+.loader-120 span::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 50%;
+}
+
+.loader-120 span:first-child {
+    animation: newtonLeft120 1s ease-in-out infinite;
+}
+
+.loader-120 span:last-child {
+    animation: newtonRight120 1s ease-in-out infinite;
+}
+
+@keyframes newtonLeft120 {
+
+    0%,
+    50% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-30deg);
+        transform-origin: top;
+    }
+}
+
+@keyframes newtonRight120 {
+
+    50%,
+    100% {
+        transform: rotate(0);
+    }
+
+    75% {
+        transform: rotate(30deg);
+        transform-origin: top;
+    }
+}
+
+/* 121: Slot Machine */
+.loader-121 {
+    width: 80px;
+    height: 30px;
+    background: #1e293b;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px;
+    gap: 4px;
+}
+
+.loader-121 span {
+    width: 20px;
+    height: 100%;
+    background: #334155;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-121 span::before {
+    content: '7';
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fbbf24;
+    animation: slot121 0.3s steps(3) infinite;
+}
+
+.loader-121 span:nth-child(2)::before {
+    animation-delay: 0.1s;
+}
+
+.loader-121 span:nth-child(3)::before {
+    animation-delay: 0.2s;
+}
+
+@keyframes slot121 {
+    0% {
+        top: -15px;
+    }
+
+    100% {
+        top: 25px;
+    }
+}
+
+/* 122: Dice Roll */
+.loader-122 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 4px;
+    position: relative;
+    animation: diceRoll122 2s ease-in-out infinite;
+}
+
+.loader-122::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #1e293b;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes diceRoll122 {
+
+    0%,
+    100% {
+        transform: rotateX(0) rotateY(0);
+    }
+
+    25% {
+        transform: rotateX(90deg) rotateY(0);
+    }
+
+    50% {
+        transform: rotateX(90deg) rotateY(90deg);
+    }
+
+    75% {
+        transform: rotateX(0deg) rotateY(90deg);
+    }
+}
+
+/* 123: Hourglass Sand */
+.loader-123 {
+    width: 20px;
+    height: 40px;
+    position: relative;
+}
+
+.loader-123::before,
+.loader-123::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.loader-123::before {
+    top: 0;
+    border-top: 18px solid #fbbf24;
+    animation: hourglassTop123 2s ease-in-out infinite;
+}
+
+.loader-123::after {
+    bottom: 0;
+    border-bottom: 18px solid #fbbf24;
+    animation: hourglassBottom123 2s ease-in-out infinite;
+}
+
+@keyframes hourglassTop123 {
+    0% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes hourglassBottom123 {
+    0% {
+        opacity: 0.2;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 124: Lighthouse */
+.loader-124 {
+    width: 16px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ef4444 50%, white 50%);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.loader-124::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: lighthouse124 2s linear infinite;
+}
+
+@keyframes lighthouse124 {
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* 125: Blinking Cursor */
+.loader-125 {
+    width: 3px;
+    height: 24px;
+    background: #6366f1;
+    animation: cursor125 1s step-end infinite;
+}
+
+@keyframes cursor125 {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
