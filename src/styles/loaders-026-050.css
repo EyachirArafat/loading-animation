@@ -4,18 +4,20 @@
 .loader-026 {
     width: 60px;
     height: 60px;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
     position: relative;
-    animation: spin 3s linear infinite;
+    animation: orbit026 2s linear infinite;
 }
 
 .loader-026::before {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     background: #6366f1;
     border-radius: 50%;
-    top: 0;
+    top: -7px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 10px #6366f1;
@@ -24,12 +26,19 @@
 .loader-026::after {
     content: '';
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: #ec4899;
     border-radius: 50%;
-    bottom: 10px;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes orbit026 {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* 027: Gear Spin */

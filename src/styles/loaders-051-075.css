@@ -23,30 +23,42 @@
 
 /* 052: Orbiting Electron */
 .loader-052 {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    border: 2px solid rgba(99, 102, 241, 0.3);
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(99, 102, 241, 0.2);
     border-radius: 50%;
+    position: relative;
+    animation: orbit052 1.5s linear infinite;
 }
 
 .loader-052::before {
     content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background: #6366f1;
     border-radius: 50%;
-    top: -5px;
+    top: -6px;
     left: 50%;
     transform: translateX(-50%);
-    animation: orbit 1s linear infinite;
-    transform-origin: center 35px;
+    box-shadow: 0 0 8px #6366f1;
 }
 
-@keyframes orbit {
+.loader-052::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #a855f7;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes orbit052 {
     to {
-        transform: translateX(-50%) rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -206,19 +218,24 @@
     height: 12px;
     background: #ec4899;
     border-radius: 50%;
-    bottom: 100%;
-    animation: linebounce 0.6s ease-in-out infinite alternate;
+    bottom: 6px;
+    left: 0;
+    animation: linebounce056 0.8s ease-in-out infinite alternate;
 }
 
-@keyframes linebounce {
+@keyframes linebounce056 {
     0% {
         left: 0;
         transform: translateY(0);
     }
 
+    50% {
+        transform: translateY(-15px);
+    }
+
     100% {
         left: calc(100% - 12px);
-        transform: translateY(-20px);
+        transform: translateY(0);
     }
 }
 
