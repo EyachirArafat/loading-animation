@@ -87,27 +87,69 @@ const LoaderCard: FC<{ loader: Loader }> = ({ loader }) => {
                 </span>
                 <h3 className="text-white font-medium">{loader.name}</h3>
               </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={handleCopyFull}
-                  className={`text-xs py-1.5 px-3 rounded-lg font-medium transition-all ${copied
-                    ? "bg-green-500/20 text-green-400"
-                    : "bg-indigo-500/20 text-indigo-400 hover:bg-indigo-500/30"
-                    }`}
-                >
-                  {copied ? "✓ Copied!" : "Copy"}
-                </button>
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="text-zinc-400 hover:text-white transition-all text-xl px-2"
-                >
-                  ×
-                </button>
-              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-zinc-400 hover:text-white transition-all text-xl px-2"
+              >
+                ×
+              </button>
             </div>
-            {/* Modal Body */}
-            <div className="p-4 overflow-auto max-h-[60vh]">
-              <pre className="text-xs text-indigo-300 whitespace-pre-wrap font-mono">{fullCode}</pre>
+            {/* Modal Body - Separate HTML and CSS */}
+            <div className="p-4 overflow-auto max-h-[60vh] space-y-4">
+              {/* HTML Section */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-semibold text-orange-400 bg-orange-500/10 px-2 py-1 rounded">HTML</span>
+                  <button
+                    onClick={async () => {
+                      await navigator.clipboard.writeText(loader.html);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 1500);
+                    }}
+                    className="text-xs py-1 px-2 rounded bg-orange-500/10 text-orange-400 hover:bg-orange-500/20 transition-all"
+                  >
+                    Copy HTML
+                  </button>
+                </div>
+                <pre className="bg-black/50 border border-white/10 rounded-lg p-4 overflow-x-auto">
+                  <code className="text-sm font-mono text-orange-300">{loader.html}</code>
+                </pre>
+              </div>
+
+              {/* CSS Section */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-semibold text-blue-400 bg-blue-500/10 px-2 py-1 rounded">CSS</span>
+                  <button
+                    onClick={async () => {
+                      const css = require("@/db/loader-css").loaderCSS[loader.id] || "";
+                      await navigator.clipboard.writeText(css);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 1500);
+                    }}
+                    className="text-xs py-1 px-2 rounded bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-all"
+                  >
+                    Copy CSS
+                  </button>
+                </div>
+                <pre className="bg-black/50 border border-white/10 rounded-lg p-4 overflow-x-auto">
+                  <code className="text-sm font-mono text-blue-300 whitespace-pre-wrap">{(() => {
+                    const css = require("@/db/loader-css").loaderCSS[loader.id];
+                    return css || `/* CSS for loader-${loader.id} not found */`;
+                  })()}</code>
+                </pre>
+              </div>
+
+              {/* Copy All Button */}
+              <button
+                onClick={handleCopyFull}
+                className={`w-full text-sm py-2.5 rounded-lg font-medium transition-all ${copied
+                  ? "bg-green-500/20 text-green-400"
+                  : "bg-indigo-500/20 text-indigo-400 hover:bg-indigo-500/30"
+                  }`}
+              >
+                {copied ? "✓ Copied!" : "📋 Copy All (Markdown)"}
+              </button>
             </div>
           </div>
         </div>
