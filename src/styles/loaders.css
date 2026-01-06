@@ -432,53 +432,60 @@
     }
 }
 
-/* 015: Heartbeat */
+/* 015: Heartbeat - Anatomical Human Heart 🫀 */
 .loader-015 {
-    width: 30px;
-    height: 30px;
-    background: #ec4899;
     position: relative;
-    transform: rotate(-45deg);
-    animation: heartbeat015 1s ease-in-out infinite;
+    width: 50px;
+    height: 55px;
+    animation: heartbeat015 1.2s ease-in-out infinite;
 }
 
-.loader-015::before,
+/* Heart organ shape using clip-path */
+.loader-015::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg,
+            #f87171 0%,
+            #ef4444 20%,
+            #dc2626 40%,
+            #b91c1c 70%,
+            #991b1b 100%);
+    clip-path: path('M25 5 C15 0, 5 5, 5 15 C5 25, 10 35, 25 50 C40 35, 45 25, 45 15 C45 5, 35 0, 25 5 M20 5 L20 0 L25 0 L25 5 M30 5 L30 0 L35 2 L32 7');
+    filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Highlight/shine effect */
 .loader-015::after {
     content: '';
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background: #ec4899;
+    top: 12px;
+    left: 10px;
+    width: 12px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
-}
-
-.loader-015::before {
-    top: -15px;
-    left: 0;
-}
-
-.loader-015::after {
-    left: 15px;
-    top: 0;
+    transform: rotate(-30deg);
 }
 
 @keyframes heartbeat015 {
 
     0%,
+    60%,
     100% {
-        transform: rotate(-45deg) scale(1);
+        transform: scale(1);
     }
 
-    25% {
-        transform: rotate(-45deg) scale(1.2);
+    10% {
+        transform: scale(1.12);
     }
 
-    50% {
-        transform: rotate(-45deg) scale(1);
+    20% {
+        transform: scale(1);
     }
 
-    75% {
-        transform: rotate(-45deg) scale(1.1);
+    30% {
+        transform: scale(1.08);
     }
 }
 

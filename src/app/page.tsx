@@ -8,66 +8,109 @@ import "@/styles/loaders-076-100.css";
 import "@/styles/loaders-101-125.css";
 import { Loader } from "@/types";
 import { categories, loaders } from "@/db";
+import { getLoaderFullCode } from "@/db/loader-css";
 
 
 // Loader Card Component
 const LoaderCard: FC<{ loader: Loader }> = ({ loader }) => {
   const [copied, setCopied] = useState(false);
-  const [showCode, setShowCode] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const handleCopyHTML = async () => {
-    await navigator.clipboard.writeText(loader.html);
+  // Get full HTML + CSS code
+  const fullCode = getLoaderFullCode(loader.id, loader.name, loader.html);
+
+  const handleCopyFull = async () => {
+    await navigator.clipboard.writeText(fullCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="group relative bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-      {/* Preview Area */}
-      <div className="h-32 flex items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-800">
-        <div dangerouslySetInnerHTML={{ __html: loader.html }} />
-      </div>
-
-      {/* Info Bar */}
-      <div className="p-4 border-t border-white/5">
-        <div className="flex items-center justify-between mb-2">
-          <div>
-            <span className="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded">
-              #{loader.id}
-            </span>
-          </div>
-          <span className="text-[10px] text-zinc-500 capitalize">{loader.category}</span>
-        </div>
-        <h3 className="text-sm font-medium text-white mb-3 truncate">{loader.name}</h3>
-
-        {/* Actions */}
-        <div className="flex gap-2">
-          <button
-            onClick={handleCopyHTML}
-            className={`flex-1 text-xs py-2 px-3 rounded-lg font-medium transition-all ${copied
-              ? "bg-green-500/20 text-green-400"
-              : "bg-white/5 text-zinc-400 hover:bg-indigo-500/20 hover:text-indigo-400"
-              }`}
-          >
-            {copied ? "✓ Copied!" : "Copy HTML"}
-          </button>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className="text-xs py-2 px-3 rounded-lg bg-white/5 text-zinc-400 hover:bg-white/10 transition-all"
-            title="View Code"
-          >
-            {"</>"}
-          </button>
+    <>
+      <div className="group relative bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
+        {/* Preview Area */}
+        <div className="h-32 flex items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-800">
+          <div dangerouslySetInnerHTML={{ __html: loader.html }} />
         </div>
 
-        {/* Code Preview */}
-        {showCode && (
-          <div className="mt-3 p-2 bg-black/50 rounded-lg overflow-x-auto">
-            <code className="text-[10px] text-indigo-300 whitespace-pre">{loader.html}</code>
+        {/* Info Bar */}
+        <div className="p-4 border-t border-white/5">
+          <div className="flex items-center justify-between mb-2">
+            <div>
+              <span className="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded">
+                #{loader.id}
+              </span>
+            </div>
+            <span className="text-[10px] text-zinc-500 capitalize">{loader.category}</span>
           </div>
-        )}
+          <h3 className="text-sm font-medium text-white mb-3 truncate">{loader.name}</h3>
+
+          {/* Actions */}
+          <div className="flex gap-2">
+            <button
+              onClick={handleCopyFull}
+              className={`flex-1 text-xs py-2 px-3 rounded-lg font-medium transition-all ${copied
+                ? "bg-green-500/20 text-green-400"
+                : "bg-white/5 text-zinc-400 hover:bg-indigo-500/20 hover:text-indigo-400"
+                }`}
+            >
+              {copied ? "✓ Copied!" : "Copy Code"}
+            </button>
+            <button
+              onClick={() => setShowModal(true)}
+              className="text-xs py-2 px-3 rounded-lg bg-white/5 text-zinc-400 hover:bg-white/10 transition-all"
+              title="View Code"
+            >
+              {"</>"}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Modal Overlay */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-zinc-900 border border-white/10 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">
+                  #{loader.id}
+                </span>
+                <h3 className="text-white font-medium">{loader.name}</h3>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleCopyFull}
+                  className={`text-xs py-1.5 px-3 rounded-lg font-medium transition-all ${copied
+                    ? "bg-green-500/20 text-green-400"
+                    : "bg-indigo-500/20 text-indigo-400 hover:bg-indigo-500/30"
+                    }`}
+                >
+                  {copied ? "✓ Copied!" : "Copy"}
+                </button>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-zinc-400 hover:text-white transition-all text-xl px-2"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+            {/* Modal Body */}
+            <div className="p-4 overflow-auto max-h-[60vh]">
+              <pre className="text-xs text-indigo-300 whitespace-pre-wrap font-mono">{fullCode}</pre>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
