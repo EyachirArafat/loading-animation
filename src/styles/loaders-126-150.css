@@ -1,0 +1,870 @@
+/* ===== LOADER 126-150: More Unique Designs ===== */
+
+/* 126: Spinning Rings */
+.loader-126 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-126 span {
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-radius: 50%;
+}
+
+.loader-126 span:nth-child(1) {
+    border-top-color: #6366f1;
+    animation: ring126 1s linear infinite;
+}
+
+.loader-126 span:nth-child(2) {
+    inset: 6px;
+    border-right-color: #a855f7;
+    animation: ring126 1.5s linear infinite reverse;
+}
+
+.loader-126 span:nth-child(3) {
+    inset: 12px;
+    border-bottom-color: #ec4899;
+    animation: ring126 2s linear infinite;
+}
+
+@keyframes ring126 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 127: Gauge Meter */
+.loader-127 {
+    width: 60px;
+    height: 30px;
+    border: 3px solid rgba(99, 102, 241, 0.2);
+    border-bottom: none;
+    border-radius: 60px 60px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-127::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 25px;
+    background: #6366f1;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    animation: gauge127 2s ease-in-out infinite;
+}
+
+@keyframes gauge127 {
+
+    0%,
+    100% {
+        transform: translateX(-50%) rotate(-60deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(60deg);
+    }
+}
+
+/* 128: Fading Squares */
+.loader-128 {
+    display: flex;
+    gap: 4px;
+}
+
+.loader-128 span {
+    width: 12px;
+    height: 12px;
+    background: #6366f1;
+    animation: fade128 1.2s ease-in-out infinite;
+}
+
+.loader-128 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-128 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.loader-128 span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fade128 {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 129: Circular Progress */
+.loader-129 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#6366f1 0deg, transparent 0deg);
+    position: relative;
+    animation: progress129 2s linear infinite;
+}
+
+.loader-129::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: #0a0a0f;
+    border-radius: 50%;
+}
+
+@keyframes progress129 {
+    to {
+        background: conic-gradient(#6366f1 360deg, transparent 360deg);
+    }
+}
+
+/* 130: Wobble */
+.loader-130 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    border-radius: 50%;
+    animation: wobble130 1s ease-in-out infinite;
+}
+
+@keyframes wobble130 {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0);
+        border-radius: 50%;
+    }
+
+    25% {
+        transform: translateX(-10px) rotate(-5deg);
+        border-radius: 40% 60% 60% 40%;
+    }
+
+    75% {
+        transform: translateX(10px) rotate(5deg);
+        border-radius: 60% 40% 40% 60%;
+    }
+}
+
+/* 131: Typewriter Dots */
+.loader-131 {
+    font-size: 24px;
+    color: #6366f1;
+    letter-spacing: 4px;
+}
+
+.loader-131::after {
+    content: '...';
+    animation: type131 1.5s steps(4) infinite;
+}
+
+@keyframes type131 {
+    0% {
+        content: '';
+    }
+
+    25% {
+        content: '.';
+    }
+
+    50% {
+        content: '..';
+    }
+
+    75% {
+        content: '...';
+    }
+}
+
+/* 132: Shaking Box */
+.loader-132 {
+    width: 30px;
+    height: 30px;
+    background: #6366f1;
+    border-radius: 4px;
+    animation: shake132 0.5s ease-in-out infinite;
+}
+
+@keyframes shake132 {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(5px) rotate(5deg);
+    }
+}
+
+/* 133: Growing Circle */
+.loader-133 {
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: grow133 1s ease-in-out infinite;
+}
+
+@keyframes grow133 {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 0.3;
+    }
+}
+
+/* 134: DNA Ladder */
+.loader-134 {
+    width: 40px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-134 span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.loader-134 span:nth-child(odd) {
+    left: 0;
+    background: #6366f1;
+}
+
+.loader-134 span:nth-child(even) {
+    right: 0;
+    background: #ec4899;
+}
+
+.loader-134 span:nth-child(1),
+.loader-134 span:nth-child(2) {
+    top: 0;
+    animation: dna134 1s ease-in-out infinite;
+}
+
+.loader-134 span:nth-child(3),
+.loader-134 span:nth-child(4) {
+    top: 20px;
+    animation: dna134 1s ease-in-out 0.33s infinite;
+}
+
+.loader-134 span:nth-child(5),
+.loader-134 span:nth-child(6) {
+    top: 40px;
+    animation: dna134 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes dna134 {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(15px);
+    }
+}
+
+/* 135: Jumping Ball */
+.loader-135 {
+    width: 60px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-135::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    bottom: 10px;
+    left: 0;
+    animation: jump135 1s ease-in-out infinite;
+}
+
+.loader-135::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    animation: shadow135 1s ease-in-out infinite;
+}
+
+@keyframes jump135 {
+
+    0%,
+    100% {
+        bottom: 10px;
+        left: 0;
+    }
+
+    25% {
+        bottom: 30px;
+    }
+
+    50% {
+        bottom: 10px;
+        left: 40px;
+    }
+
+    75% {
+        bottom: 30px;
+    }
+}
+
+@keyframes shadow135 {
+
+    0%,
+    100% {
+        transform: scaleX(1);
+        left: 0;
+    }
+
+    25% {
+        transform: scaleX(0.5);
+    }
+
+    50% {
+        transform: scaleX(1);
+        left: 40px;
+    }
+
+    75% {
+        transform: scaleX(0.5);
+    }
+}
+
+/* 136: Flip Card */
+.loader-136 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: flip136 2s ease-in-out infinite;
+}
+
+.loader-136::before,
+.loader-136::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    backface-visibility: hidden;
+}
+
+.loader-136::before {
+    background: #6366f1;
+}
+
+.loader-136::after {
+    background: #ec4899;
+    transform: rotateY(180deg);
+}
+
+@keyframes flip136 {
+
+    0%,
+    100% {
+        transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+/* 137: Pulse Ring */
+.loader-137 {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #6366f1;
+    border-radius: 50%;
+    animation: pulse137 1.5s ease-out infinite;
+}
+
+@keyframes pulse137 {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 138: Loading Text */
+.loader-138 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6366f1;
+    animation: text138 2s linear infinite;
+}
+
+.loader-138::before {
+    content: 'LOADING';
+}
+
+@keyframes text138 {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* 139: Spinning Diamond */
+.loader-139 {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    transform: rotate(45deg);
+    animation: diamond139 1s linear infinite;
+}
+
+@keyframes diamond139 {
+    to {
+        transform: rotate(405deg);
+    }
+}
+
+/* 140: Bouncing Bars */
+.loader-140 {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 40px;
+}
+
+.loader-140 span {
+    width: 8px;
+    background: #6366f1;
+    border-radius: 4px;
+    animation: bars140 1s ease-in-out infinite;
+}
+
+.loader-140 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-140 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-140 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-140 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-140 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bars140 {
+
+    0%,
+    100% {
+        height: 10px;
+    }
+
+    50% {
+        height: 35px;
+    }
+}
+
+/* 141: Rotating Square */
+.loader-141 {
+    width: 35px;
+    height: 35px;
+    border: 4px solid #6366f1;
+    animation: square141 1.5s ease-in-out infinite;
+}
+
+@keyframes square141 {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(0.7);
+        border-radius: 50%;
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* 142: Circular Dots */
+.loader-142 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: spin 2s linear infinite;
+}
+
+.loader-142 span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 50%;
+}
+
+.loader-142 span:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loader-142 span:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0.75;
+}
+
+.loader-142 span:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+.loader-142 span:nth-child(4) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    opacity: 0.25;
+}
+
+/* 143: Blinking Grid */
+.loader-143 {
+    display: grid;
+    grid-template-columns: repeat(3, 10px);
+    gap: 3px;
+}
+
+.loader-143 span {
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    animation: blink143 1.5s ease-in-out infinite;
+}
+
+.loader-143 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-143 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-143 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-143 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-143 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loader-143 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.loader-143 span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.loader-143 span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.loader-143 span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+@keyframes blink143 {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 144: Ripple */
+.loader-144 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.loader-144 span {
+    position: absolute;
+    inset: 0;
+    border: 3px solid #6366f1;
+    border-radius: 50%;
+    animation: ripple144 1.5s ease-out infinite;
+}
+
+.loader-144 span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes ripple144 {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* 145: Glowing Dot */
+.loader-145 {
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    animation: glow145 1.5s ease-in-out infinite;
+}
+
+@keyframes glow145 {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px #6366f1, 0 0 10px #6366f1;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #6366f1, 0 0 40px #6366f1, 0 0 60px #6366f1;
+    }
+}
+
+/* 146: Sliding Blocks */
+.loader-146 {
+    width: 60px;
+    height: 20px;
+    position: relative;
+}
+
+.loader-146 span {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #6366f1;
+    border-radius: 4px;
+    animation: slide146 1s ease-in-out infinite;
+}
+
+.loader-146 span:nth-child(1) {
+    left: 0;
+}
+
+.loader-146 span:nth-child(2) {
+    left: 21px;
+    animation-delay: 0.2s;
+}
+
+.loader-146 span:nth-child(3) {
+    left: 42px;
+    animation-delay: 0.4s;
+}
+
+@keyframes slide146 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 147: Morphing Shape */
+.loader-147 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #6366f1, #ec4899);
+    animation: morph147 3s ease-in-out infinite;
+}
+
+@keyframes morph147 {
+
+    0%,
+    100% {
+        border-radius: 0;
+        transform: rotate(0);
+    }
+
+    25% {
+        border-radius: 50% 0;
+        transform: rotate(90deg);
+    }
+
+    50% {
+        border-radius: 50%;
+        transform: rotate(180deg);
+    }
+
+    75% {
+        border-radius: 0 50%;
+        transform: rotate(270deg);
+    }
+}
+
+/* 148: Loading Circle */
+.loader-148 {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    position: relative;
+}
+
+.loader-148::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 3px solid transparent;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: circle148 0.8s linear infinite;
+}
+
+@keyframes circle148 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 149: Wave Line */
+.loader-149 {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.loader-149 span {
+    width: 4px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 2px;
+    animation: wave149 1s ease-in-out infinite;
+}
+
+.loader-149 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-149 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loader-149 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loader-149 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loader-149 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.loader-149 span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave149 {
+
+    0%,
+    100% {
+        transform: scaleY(0.5);
+    }
+
+    50% {
+        transform: scaleY(1.5);
+    }
+}
+
+/* 150: Spinning Coin */
+.loader-150 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 50%;
+    border: 3px solid #b45309;
+    animation: coin150 1s ease-in-out infinite;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes coin150 {
+
+    0%,
+    100% {
+        transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+}

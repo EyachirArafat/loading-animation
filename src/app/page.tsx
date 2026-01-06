@@ -6,6 +6,7 @@ import "@/styles/loaders-026-050.css";
 import "@/styles/loaders-051-075.css";
 import "@/styles/loaders-076-100.css";
 import "@/styles/loaders-101-125.css";
+import "@/styles/loaders-126-150.css";
 import { Loader } from "@/types";
 import { categories, loaders } from "@/db";
 import { getLoaderFullCode } from "@/db/loader-css";
