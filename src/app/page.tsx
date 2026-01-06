@@ -76,11 +76,11 @@ const LoaderCard: FC<{ loader: Loader }> = ({ loader }) => {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-zinc-900 border border-white/10 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-hidden"
+            className="bg-zinc-900 border border-white/10 rounded-xl max-w-2xl w-full max-h-[80vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
+            <div className="flex items-center justify-between p-4 border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">
                   #{loader.id}
@@ -95,7 +95,7 @@ const LoaderCard: FC<{ loader: Loader }> = ({ loader }) => {
               </button>
             </div>
             {/* Modal Body - Separate HTML and CSS */}
-            <div className="p-4 overflow-auto max-h-[60vh] space-y-4">
+            <div className="p-4 overflow-y-auto flex-1 space-y-4" style={{ scrollBehavior: 'smooth', overscrollBehavior: 'contain' }}>
               {/* HTML Section */}
               <div>
                 <div className="flex items-center justify-between mb-2">
