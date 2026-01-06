@@ -138,7 +138,7 @@ export default function Home() {
       {/* Category Filter */}
       <div className="sticky top-0 z-40 bg-[#09090b]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
             {categories.map((cat) => {
               const count = cat.id === "all"
                 ? loaders.length
